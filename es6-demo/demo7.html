@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ES6测试</title>
+    <script>
+        // 定义数组
+        var arr = [10, 20, 30];
+        // 传播操作符: 把一个数组的元素传播到另一个数组
+        var cpArr = [...arr, 40];
+        console.log(cpArr);
+
+        // 定义对象函数
+        var user = (name, age) => ({name, age});
+        //调用函数赋值并复制到另一个对象
+        var cpUser = {...user("刁嘉辉", 25), sex : '男'};
+        console.log(cpUser);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

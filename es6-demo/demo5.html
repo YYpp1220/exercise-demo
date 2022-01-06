@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ES6测试</title>
+    <script>
+        // 函数默认参数
+        var sum = function (a, b) {
+            return a + b;
+        };
+        console.log(sum(100, 200));
+        // 1. 箭头函数(第一种方式)
+        // var 函数名 = (形参列表) => {函数体}
+        var sum1 = (a, b) => {
+            return a + b;
+        };
+        console.log(sum1(200, 300));
+        // 2. 箭头函数(第二种方式)
+        // 如果函数体只有一行语句可以再次简化，并默认return
+        var sum2 = (a, b) => a + b;
+        console.log(sum2(300, 200));
+        // 3. 箭头函数(第三种方式)
+        // 如果没有形参列表
+        var sum3 = () => {
+            return 10;
+        };
+        console.log(sum3());
+        // 4. 箭头函数(第四种方式)
+        // 如果只有一个形参列表
+        var sum4 = (a, b, c, d) => {
+            switch (a) {
+                case a == 1:
+                    b > 0 ? b * c : c * d;
+                    break;
+                case a == 2:
+                    b < 0 ? b + c : c + d;
+                    break;
+                default:
+                    b / c;
+            }
+        };
+        console.log(sum4(1, 200, 300, 400));
+        // 5. 箭头函数(第五种方式)
+        // 如果只有一个形参列表 (再次简化)
+        var sum5 = num => 10 + num;
+        console.log(sum5(100));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

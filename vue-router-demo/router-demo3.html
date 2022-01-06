@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue路由测试三</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="node_modules/vue-router/dist/vue-router.js"></script>
+    <script src="js/user.js"></script>
+    <script src="js/dept.js"></script>
+</head>
+<body>
+<div id="app">
+    <h3>路由测试三</h3>
+    <p>
+        <!-- 1. 使用 router-link 组件来导航.
+              通过传入 `to` 属性指定路由路径path.
+              <router-link> 默认会被渲染成一个 `<a>` 标签 -->
+        <router-link :to="{name : 'user', params : {id : 1}}">用户管理</router-link>
+        <router-link :to="{name : 'dept', params : {name : 'admin'}}">部门管理</router-link>
+    </p>
+    <!-- 2. 路由出口，路由匹配到的组件将渲染在这里 -->
+    <router-view></router-view>
+</div>
+</body>
+<script>
+    /**
+     * 3. 创建Vue实例并指定挂载的根元素，
+     * 通过 router 配置路由对象，
+     * 从而让整个应用都有路由功能
+     */
+    var vue = new Vue({
+        // 创建路由对象
+        router: new VueRouter({
+            // 定义路由规则
+            routes: [
+                // path: 路由路径，component: 路由到的组件
+                // 动态路径参数 以冒号开头
+                {
+                    path: '/user/:id',
+                    name: 'user',
+                    component: user
+                },
+                {
+                    path: '/dept/:name',
+                    name: 'dept',
+                    component: dept
+                }
+            ]
+        })
+    }).$mount('#app');
+</script>
+</html>

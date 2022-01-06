@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vuejs测试</title>
+    <!-- 引入Vue -->
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- View 视图 -->
+    <div id="app">
+		{{message}}
+        <hr color="red"/>
+        <!-- 插值表达式: 算术运算符 -->
+        {{(100 + 200 + 300) * 100}}
+        <hr color="blue"/>
+        <!-- 插值表达式: 三目运算符 -->
+        {{100 > 50 ? "大于50" : "小于50"}}
+    </div>
+</body>
+<!-- Vuejs代码 -->
+<script>
+    var vue = new Vue({
+        // 指定Vue渲染的html元素 element
+        el : "#app",
+        // 数据对象 Model
+        data : {
+            message : "Vuejs入门到精通.....",
+        }
+    })
+</script>
+</html>

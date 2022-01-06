@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vuejs定义组件</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 使用组件 -->
+        <my-button></my-button>
+        <my-button></my-button>
+        <my-button></my-button>
+    </div>
+
+    <script type="text/javascript">
+        //定义组件
+        const MyButton = {
+            //渲染模板
+            template : `<button @click="calc()">你点击了: {{num}}次！</button>`,
+            //组件数据 (必须是一个函数)
+            data: function () {
+                return {
+                    num : 1,
+                };
+            },
+            methods : {
+                calc : function(){
+                    this.num++;
+                },
+            },
+        };
+       
+        // 创建Vue实例
+        var vue = new Vue({
+            el : '#app', // 渲染的html元素
+            data : { // 数据对象
+
+            },
+            // 局部注册组件(只有当前vue实例可以用)
+            components : {
+                'my-button' : MyButton
+            }
+        });
+
+    </script>
+</body>
+</html>

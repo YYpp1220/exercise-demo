@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>post请求</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="node_modules/axios/dist/axios.js"></script>
+
+    <script type="text/javascript">
+        // 文档加载完
+        window.onload = function () {
+            // 创建Vue实例
+            var vue = new Vue({
+                el : '#app', // 指定渲染的html元素
+                data : {  // 数据对象
+                    user : {sex : 1}
+                },
+                methods : { // 操作方法
+                    save() {
+                        axios.post("/save", this.user).then((response) => {
+                            if (response.data) {
+                                alert("添加成功")
+                            }else {
+                                alert("添加失败")
+                            }
+                        }).catch((error) => {
+                            console.log(error);
+                        })
+                    }
+                }
+            });
+        };
+    </script>
+
+</head>
+<body>
+    <div id="app">
+        <div style="text-align: center">
+            <span>用户名: <input type="text" v-model="user.userName"/> </span><br/>
+            <span>密码: <input type="password" v-model="user.password"/></span><br/>
+            <span>姓名: <input type="text" v-model="user.name"/></span><br/>
+            <span>年龄: <input type="text" v-model="user.age"/></span><br/>
+            <span>性别: <input type="radio" value="1" v-model="user.sex" checked/>男
+						<input type="radio" value="2" v-model="user.sex">女</span><br/>
+            <span>生日: <input type="text" v-model="user.birthday"/></span><br/>
+            <span>备注: <input type="text" v-model="user.note"></span><br/>
+            <input type="button" value="添加" @click="save()">
+            {{user}}
+        </div>
+    </div>
+</body>
+</html>

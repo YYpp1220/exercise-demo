@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vuejs数据绑定</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		姓名：<input type="text" v-model="name"/><br/>
+		年龄：<input type="text" v-model="user.age"/><br/>
+		性别：<input type="text" v-model="user.sex"/><br/>
+		<hr/>
+		姓名：{{name}} 年龄：{{user.age}} 性别：{{user.sex}}
+	</div>
+
+	<script type="text/javascript">
+		var vue = new Vue({
+			el : "#app",
+			data : {
+				name : "刁嘉辉",
+				user : {
+					age : 25,
+					sex : '男',
+				},
+			}
+		})
+	</script>
+</body>
+</html>

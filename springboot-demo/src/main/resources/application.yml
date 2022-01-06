@@ -1,0 +1,39 @@
+# 注意: 冒号后面必须有空格
+# 覆盖自动配置类的默认属性
+server:
+  port: 9002
+  servlet:
+    contextPath: /
+
+# 定义自已项目中需要的属性
+# 标量类型
+my:
+  host: 127.0.0.1
+  port: 3306
+
+  # 对象类型
+  user:
+    name: 小华华
+    age: 18
+    sex: 男
+
+  # 数组类型
+  address:
+    - 天河九巷
+    - 天河八巷
+    - 天河十巷
+
+  # 对象数组类型
+  users:
+    - name: 李小三
+      age: 18
+      sex: 女
+    - name: 李小一
+      age: 20
+      sex: 男
+
+# 配置日志级别
+logging:
+  level:
+    com.djh: debug
+    org.springframework: debug

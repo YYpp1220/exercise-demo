@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ES6测试</title>
+    <script>
+        // 定义promise对象,封装处理成功 或 处理失败的业务
+        const promise = new Promise(
+            // ... 执行异步操作
+            (resolve, reject) => {
+            let num = Math.random();
+            //异步操作成功
+            if (num < 0.5) {
+                // 调用resolve，代表Promise将返回成功的结果
+                // resolve() 会触发 then()函数的调用
+                resolve("操作成功！num=" + num);
+            }else {
+                // 调用reject，代表Promise会返回失败结果
+                // reject() 会触发 catch()函数的调用
+                reject("操作失败！num=" + num);
+            }
+        });
+        promise.then(msg => console.log("then:" + msg))
+            .catch(msg => console.log("catch:" + msg))
+    </script>
+</head>
+<body>
+
+</body>
+</html>

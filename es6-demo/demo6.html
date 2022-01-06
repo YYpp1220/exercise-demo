@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ES6测试</title>
+    <script>
+        // 解构数组: 方便我们获取数组元素
+        var arr = [10,20,30];
+        // 数组中的元素 放到新的变量中
+        let [x,y,z] = arr;
+        console.log(x, y, z);
+
+        // 解构对象: 方便我们获取对象属性
+        var user = {name : "admin", age : 20};
+        // 对象中的属性 放到新的变量中(变量名与属性名必须一致)
+        var {name, age} = user;
+        console.log(name + "==" + age);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

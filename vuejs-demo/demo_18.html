@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vuejs子父通信</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 使用组件 -->
+       <counter @xxx="calcNum"></counter>
+        <h3>结果: {{num}}</h3>
+    </div>
+
+    <script type="text/javascript">
+        // 全局注册组件
+       Vue.component("counter" , {
+           //渲染模板
+           template : `
+            <div>
+                <button @click="calc(1)">+</button>
+                <button @click="calc(2)">-</button>
+            </div>
+           `,
+           //方法
+           methods : {
+               calc : function (flag) {
+                   // 定义触发的事件
+                   // 参数1: 事件名称(随意)
+                   // 参数2: 参数
+                   this.$emit("xxx", flag);
+               }
+           }
+       });
+
+        // 创建Vue实例
+        var vue = new Vue({
+            el : '#app', // 渲染的html元素
+            data : { // 数据对象
+                num : 1,
+            },
+            methods: {
+                calcNum (flag) {
+                    flag === 1 ? this.num++ : this.num--;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

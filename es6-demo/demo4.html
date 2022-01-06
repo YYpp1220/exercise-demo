@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ES6测试</title>
+    <script>
+        // ES6之前的写法
+        var user = function (name, age) {
+            return {name : name, age : age};
+        };
+        console.log(user("刁嘉辉", 25));
+
+        // ES6 对象初始化写法
+        // 约定: 形参名 与 对象的key一致可以简写
+        let userOne = function (name, age) {
+            return {name, age};
+        };
+        console.log(userOne("我我我", 25));
+
+        // ES6 配合箭头函数，对象初始化
+        // 不能直接用{}号，因为ES6会认为是函数体
+        let userTwo = (name, age) => ({name, age});
+        console.log(userTwo("某某某", 25));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

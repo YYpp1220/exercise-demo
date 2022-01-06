@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vuejs事件绑定</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        x值：<input type="text" v-model.number="x" @keyup="keyup()"/><br/>
+        y值：<input type="text" v-model.number="y" @blur="blur()"/><br/>
+        <input type="button" value="计算一" @click="sum()"/>
+        <!--
+           @事件名 这种方式绑定事件在Vue2.0推荐使用
+           过时的事件绑定(了解 1.x版本)
+           v-on:事件名 已放弃
+         -->
+        <input type="button" value="计算二" v-on:click="sum()"/>
+        <hr/>
+        {{count}}
+    </div>
+    <script type="text/javascript">
+		// 创建Vue实例
+        var vue = new Vue({
+            el : '#app', // 渲染的html元素
+            data : { // 数据对象(必须先定义，才能使用)
+                x : '',
+                y : '',
+                count : '',
+            },
+            methods : {// 事件方法
+                /*sum : () => this.count = this.x + this.y,
+                keyup : () => alert(this.x),
+                blur : () => alert(this.y),*/
+                sum : function () {
+                    this.count = this.x + this.y;
+                },
+                keyup : function () {
+                    alert(this.x);
+                },
+                blur : function () {
+                    alert(this.y);
+                }
+            },
+        });
+    </script>
+</body>
+</html>

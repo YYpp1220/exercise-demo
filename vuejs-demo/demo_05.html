@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vuejs按键修饰符</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 判断按下了什么键才触发事件：
+             @keydown.enter: 按下了回车键
+             $event: Vue事件对象
+         -->
+        姓名：<input type="text" @keydown.enter="fun($event)"/>
+    </div>
+
+
+    <script type="text/javascript">
+		// 创建Vue实例
+        var vue = new Vue({
+            el : '#app',
+            methods : {
+                fun(e){
+                    alert("按下了回车键！！" + e.keyCode);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>get请求</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="node_modules/axios/dist/axios.js"></script>
+    <script type="text/javascript">
+        // 文档加载完
+        window.onload = function () {
+            //创建vue根实例
+            var vue = new Vue({
+                //指定渲染的html元素
+                el: '#app',
+                //数据对象
+                data: {
+                    //返回的用户数据的集合
+                    userList: []
+                },
+                //钩子函数，实例化vue之后调用
+                created() {
+                    //调用查询方法
+                    this.search()
+                },
+                methods: {
+                    //查询方法
+                    search() {
+                        //异步发送查询所有请求
+                        axios.get("/findAll")
+                            //成功
+                            .then((response) => {
+                            this.userList = response.data;
+                            //失败
+                        }).catch((error) => {
+                            console.log(error);
+                        })
+                    }
+                }
+            });
+        };
+    </script>
+</head>
+<body>
+<div id="app">
+    <table border="1" width="90%" align="center"
+           style="border-collapse: collapse;">
+        <tr>
+            <th>用户id</th>
+            <th>用户名</th>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+            <th>出生日期</th>
+            <th>备注</th>
+            <th>创建时间</th>
+            <th>修改时间</th>
+        </tr>
+        <tr v-for="(user, index) in userList">
+            <td>{{index + 1}}</td>
+            <td>{{user.userName}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.age}}</td>
+            <td>{{user.sex == 1 ? '男' : '女'}}</td>
+            <td>{{user.birthday}}</td>
+            <td>{{user.note}}</td>
+            <td>{{user.created}}</td>
+            <td>{{user.updated}}</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

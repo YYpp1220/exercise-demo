@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vuejs生命周期钩子函数</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{message}}
+    </div>
+    <script type="text/javascript">
+		// 创建Vue实例
+        var vm = new Vue({ 
+            el : '#app', // 渲染的html元素
+            data : { // 数据对象
+                message : 'VueJS 您好!'
+            },
+			// 生命周期中的钓子函数
+            beforeCreate : function() {
+                showData('1.实例初始化之前', this);
+            },
+            created : function() {
+                showData('2.实例初始化之后', this);
+            },
+            beforeMount : function() {
+                showData('3.挂载到dom前', this);
+            },
+            mounted : function() {
+                showData('4.挂载到dom后', this);
+            },
+            beforeUpdate : function() {
+                showData('5.数据变化更新前', this);
+            },
+            updated : function() {
+                showData('6.数据变化更新后', this);
+            },
+            beforeDestroy : function() {
+                vm.test = "3333";
+                showData('7.vue实例销毁前', this);
+            },
+            destroyed : function() {
+                showData('8.vue实例销毁后', this);
+            }
+        });
+
+        function showData(msg, obj) {
+            console.log(msg);
+            console.log('data 数据：' + obj.message)
+            console.log('挂载的对象：')
+            console.log(obj.$el)
+            console.log('真实dom结构：' + document.getElementById('app').innerHTML);
+            console.log('-------------------------------')
+        }
+        vm.message = "good...";
+        vm.$destroy();
+    </script>
+</body>
+</html>

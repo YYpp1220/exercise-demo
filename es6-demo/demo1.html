@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ES6测试</title>
+    <script type="text/javascript">
+        // 以前用var定义的变量：相当于全局变量
+        for (var i = 0; i < 2; i++){
+            console.log("内循环输出i: " + i);
+        }
+        // 正常输出
+        console.log("外循环输出i：" + i);
+
+        console.log("==============");
+
+        // 现在用let定义的变量：相当于局部变量(作用于当前代码块)
+        for (let j = 0; j < 2; j++){
+            console.log("内循环输出j: " + j);
+        }
+        // 此处会报错
+        console.log("外循环输出j: " + j);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

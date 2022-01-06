@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vuejs属性绑定</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- v-bind: 绑定html元素的属性值 -->
+        <font v-bind:color="color" v-bind:size="size">李大华</font>
+
+        <hr/>
+        <!-- 简写: html元素的属性值 -->
+        <font :color="color3" :size="size">李大华</font>
+
+        <hr/>
+        <!-- 拼接多个颜色值 -->
+        <font :color="color + color1" :size="size">李大华</font>
+
+        <!-- url带参数值 -->
+        <a :href="'http://www.baidu.com?id=' + id">百度</a>
+    </div>
+
+    <script type="text/javascript">
+        var vue = new Vue({
+			// 创建Vue实例
+            el : '#app', // 渲染的html元素
+            data : { // 数据对象(必须先初始化)
+                color : "red",
+                color1 : 'blue',
+                color2 : 'green',
+                color3 : 'yellow',
+                size : 30,
+                id : 100,
+            }
+        });
+    </script>
+</body>
+</html>

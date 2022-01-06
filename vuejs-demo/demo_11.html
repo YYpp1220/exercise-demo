@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vuejs条件指令</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- v-if / v-else-if / v-else -->
+        <div>
+            <span v-if="sex == 0">男</span>
+            <span v-else-if="sex == 1">女</span>
+            <span v-else>保密</span>
+        </div>
+        <!-- v-if / v-else-if -->
+        <div>
+            <span v-if="sex == 0">男</span>
+            <span v-else-if="sex == 1">女</spanv->
+        </div>
+        <!-- v-if / v-else -->
+        <div>
+            <span v-if="sex == 0">男</span>
+            <span v-else>保密</span>
+        </div>
+        <div>
+            <input type="text" v-model="sex">
+        </div>
+    </div>
+
+    <script type="text/javascript">
+		// 创建Vue实例
+		var vue = new Vue({
+           el : '#app', // 渲染的html元素
+           data : { // 数据对象
+               sex : 0
+           },
+            method : {
+               isNumeric : function (num) {
+
+               }
+            }
+		});
+    </script>
+</body>
+</html>
